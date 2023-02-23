@@ -10,6 +10,8 @@ public class Aluno {
     @GeneratedValue
     private Long id;
 
+    private String email;
+
     private String nomeCompleto;
 
     @Enumerated(EnumType.STRING)
@@ -21,6 +23,14 @@ public class Aluno {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNomeCompleto() {
