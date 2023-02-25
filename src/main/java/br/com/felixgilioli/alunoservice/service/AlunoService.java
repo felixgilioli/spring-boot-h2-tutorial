@@ -7,8 +7,6 @@ import br.com.felixgilioli.alunoservice.message.PublicaMensagemAlunoCadastrado;
 import br.com.felixgilioli.alunoservice.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public record AlunoService(AlunoRepository alunoRepository,
                            PublicaMensagemAlunoCadastrado publicaMensagemAlunoCadastrado) {
@@ -26,5 +24,9 @@ public record AlunoService(AlunoRepository alunoRepository,
         publicaMensagemAlunoCadastrado.publica(alunoCadastrado);
 
         return aluno;
+    }
+
+    public Aluno buscarPorId(Long id) {
+        return alunoRepository.findById(id).orElse(null);
     }
 }
